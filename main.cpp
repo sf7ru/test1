@@ -10,13 +10,12 @@
 #include "Poco/Net/DialogSocket.h"
 #include "Poco/Net/SocketStream.h"
 #include "Poco/Net/SocketAddress.h"
-#include "Poco/FIFOBuffer.h"
 
 // ---------------------------------------------------------------------------
 // ------------------------------- DEFINITIONS -------------------------------
 // -----|-------------------|-------------------------------------------------
 
-#define MAX_SYMB_IN_STRING	256
+#define MAX_SYMB_IN_STRING	255
 #define PORT_NUMBER 		28888
 
 // ---------------------------------------------------------------------------
