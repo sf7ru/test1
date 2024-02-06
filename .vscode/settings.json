@@ -1,0 +1,35 @@
+{
+    "makefile.extensionOutputFolder": "./.vscode",
+
+//    "my_build_toolchain" : "pclinux64",
+
+    "makefile.configurations": [
+        {
+            "name": "Default",
+            "makeArgs": [
+                "all",
+                "DEBUG=yes",
+                "TARGET_PATH=.build/debug"
+            ]
+        },
+        {
+            "name": "PI",
+            "makeArgs": [
+                "all",
+                "DEBUG=yes",
+                "TARGET_PATH=.build/debug",
+                
+            ]
+        },
+
+
+    ],
+    "files.associations": {
+        "wienimage.h": "c",
+        "marvelmind.h": "c",
+        "pvt_win.h": "c",
+        "axsystem.h": "c",
+        "stdint_.h": "c"
+    }
+
+}

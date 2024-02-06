@@ -1,0 +1,5 @@
+make all DEBUG=yes TARGET_PATH=.build/debug --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/ak/x/fl/1'
+g++ -Wall -I inc -o pocoservertest src/main.cpp src/ConnectionHandler.cpp   -lPocoFoundation -lPocoNet
+make: Leaving directory '/home/ak/x/fl/1'
+ 

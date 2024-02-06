@@ -1,0 +1,71 @@
+{
+    "version": "2.0.0",
+    "command": "bash",
+    "options": {
+        "cwd": "${workspaceRoot}"
+    },
+	"args": [
+        "-c"
+    ],
+    "tasks": [
+        {
+            "label": "build debug",
+            "type": "shell",
+            "command": "make",
+            "args": [ 
+                "all",
+                "DEBUG=yes",
+                "TARGET_PATH=.build/debug",
+                "TARGET_TOOLCHAIN=${config:my_build_toolchain}"
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ],
+        },
+        {
+            "label": "build release",
+            "type": "shell",
+            "command": "make",
+            "args": [ 
+                "all",
+                "TARGET_PATH=.build/release",
+                "TARGET_TOOLCHAIN=${config:my_build_toolchain}"
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ],
+        },
+        {
+            "label": "run debug",
+            "type": "shell",
+            "command": "${env:HOME}/z/common/sbin/linux/write_scp",
+            "args": [ 
+                "smart124",
+                "conductorsvc",
+                "debug",
+                "root"
+             ],
+            "problemMatcher": [
+                "$gcc"
+            ],
+        },
+        {
+            "label": "run debug on 192.168.2.2",
+            "type": "shell",
+            "command": "${env:HOME}/z/common/sbin/linux/write_scp",
+            "args": [
+                "192.168.2.2",
+                "conductorsvc",
+                "debug",
+                "root"
+            ],
+
+            "dependsOn": [ "build debug" ],
+            "problemMatcher": [
+                "$gcc"
+            ],
+        },
+       
+    ]
+}
+
