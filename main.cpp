@@ -15,6 +15,7 @@
 // ------------------------------- DEFINITIONS -------------------------------
 // -----|-------------------|-------------------------------------------------
 
+#define LF_SIZE 			1
 #define MAX_SYMB_IN_STRING	255
 #define PORT_NUMBER 		28888
 
@@ -31,7 +32,7 @@ const char * welcomeStr = "Welcome to POCO TCP server. Enter you string:\r\n";
 
 int main(int argc, char** argv)
 {
-	char 	inBuff [ MAX_SYMB_IN_STRING ];
+	char 	inBuff [ MAX_SYMB_IN_STRING + LF_SIZE ];
 
 	Poco::Net::ServerSocket srv(PORT_NUMBER); 
 
@@ -41,7 +42,7 @@ int main(int argc, char** argv)
 		ss.sendBytes(welcomeStr, strlen(welcomeStr), 0);
 
 		int 	rd;
-		while ((rd = ss.receiveBytes(inBuff, sizeof(inBuff), 0)) > 0)
+		while ((rd = ss.receiveBytes(inBuff, MAX_SYMB_IN_STRING, 0)) > 0)
 		{
 			std::reverse(inBuff, inBuff + rd);
 			inBuff[ rd++ ] = '\n';
