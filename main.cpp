@@ -48,6 +48,7 @@ int main(int argc, char** argv)
 			inBuff[ rd++ ] = '\n';
 			ss.sendBytes(inBuff, rd, 0);
 		}
+        ss.close();
 	}
 	return 0;
 }
